@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cjmtnouidqxam"]
+
+[ext_resource type="PackedScene" uid="uid://cljxtm6xecd5h" path="res://ball.tscn" id="1_hn12h"]
+[ext_resource type="Script" uid="uid://ceu13k3bpsamu" path="res://level_1.gd" id="1_ihfcg"]
+[ext_resource type="PackedScene" uid="uid://mq6mgisib6n5" path="res://computer.tscn" id="3_hn12h"]
+[ext_resource type="PackedScene" uid="uid://b4a4qecdeljls" path="res://player_1.tscn" id="4_rka8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihfcg"]
+size = Vector2(45, 641)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
+size = Vector2(102, 803.5)
+
+[node name="Level1" type="Node" unique_id=938949353]
+script = ExtResource("1_ihfcg")
+
+[node name="Ball" parent="." unique_id=1206037162 instance=ExtResource("1_hn12h")]
+position = Vector2(342, 230)
+
+[node name="Player1" parent="." unique_id=1526438033 instance=ExtResource("4_rka8t")]
+position = Vector2(1141, 186)
+
+[node name="player_goal" type="CollisionShape2D" parent="Player1" unique_id=368756860]
+position = Vector2(28, 137)
+shape = SubResource("RectangleShape2D_ihfcg")
+
+[node name="Computer" parent="." unique_id=116328400 node_paths=PackedStringArray("ball") instance=ExtResource("3_hn12h")]
+ball = NodePath("../Ball")
+
+[node name="computer_goal" type="CollisionShape2D" parent="Computer" unique_id=1089942393]
+position = Vector2(-38, 401)
+shape = SubResource("RectangleShape2D_rka8t")
