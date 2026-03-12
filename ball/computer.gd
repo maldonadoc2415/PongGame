@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 	if position.y != ball.position.y:
 		position.y = move_toward(position.y, ball.position.y, delta * 1000)
 		
+
+
+func _on_ball_computer_goal() -> void:
+	pass # Replace with function body.

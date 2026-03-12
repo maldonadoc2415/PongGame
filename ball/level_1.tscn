@@ -21,10 +21,10 @@ scale = Vector2(2.5698254, 3.187912)
 texture = ExtResource("5_rka8t")
 
 [node name="Ball" parent="." unique_id=1206037162 instance=ExtResource("1_hn12h")]
-position = Vector2(574, 283)
+position = Vector2(574, 281)
 
 [node name="Player1" parent="." unique_id=1526438033 instance=ExtResource("4_rka8t")]
-position = Vector2(1137, 189)
+position = Vector2(1144, 191)
 
 [node name="Computer" parent="." unique_id=116328400 node_paths=PackedStringArray("ball") instance=ExtResource("3_hn12h")]
 position = Vector2(0, 3)
@@ -49,7 +49,7 @@ text = "This is playerscore"
 [node name="PlayerGoal" type="Area2D" parent="." unique_id=556729562]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerGoal" unique_id=368756860]
-position = Vector2(1163, 332)
+position = Vector2(1179, 337)
 shape = SubResource("RectangleShape2D_ihfcg")
 
 [node name="ComputerGoal" type="Area2D" parent="." unique_id=19312914]
@@ -58,5 +58,5 @@ shape = SubResource("RectangleShape2D_ihfcg")
 position = Vector2(-43, 335)
 shape = SubResource("RectangleShape2D_rka8t")
 
-[connection signal="ComputerGoal" from="Ball" to="." method="_on_ball_computer_goal"]
-[connection signal="PlayerGoal" from="Ball" to="." method="_on_ball_player_goal"]
+[connection signal="ComputerGoal" from="Ball" to="." method="_on_ball_player_goal"]
+[connection signal="PlayerGoal" from="Ball" to="." method="_on_ball_computer_goal"]

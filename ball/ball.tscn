@@ -14,3 +14,7 @@ texture = ExtResource("2_41u45")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=80640183]
 shape = SubResource("CircleShape2D_41u45")
+
+[connection signal="ComputerGoal" from="." to="." method="_on_computer_goal"]
+[connection signal="PlayerGoal" from="." to="." method="_on_player_goal"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
