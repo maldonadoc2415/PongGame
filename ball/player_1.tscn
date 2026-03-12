@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cm885sefrbstb" path="res://player_1.gd" id="1_bxx23"]
 [ext_resource type="Texture2D" uid="uid://hmfvrudmujr4" path="res://Player.png" id="2_qh3su"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_buxg0"]
-size = Vector2(20, 116)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxx23"]
+size = Vector2(19, 115)
 
 [node name="Player1" type="Area2D" unique_id=1526438033]
 script = ExtResource("1_bxx23")
@@ -12,5 +12,6 @@ script = ExtResource("1_bxx23")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=85015347]
 texture = ExtResource("2_qh3su")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=899878932]
-shape = SubResource("RectangleShape2D_buxg0")
+[node name="player_collision" type="CollisionShape2D" parent="." unique_id=621819729]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_bxx23")

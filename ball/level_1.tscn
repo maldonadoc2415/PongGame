@@ -4,29 +4,59 @@
 [ext_resource type="Script" uid="uid://ceu13k3bpsamu" path="res://level_1.gd" id="1_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://mq6mgisib6n5" path="res://computer.tscn" id="3_hn12h"]
 [ext_resource type="PackedScene" uid="uid://b4a4qecdeljls" path="res://player_1.tscn" id="4_rka8t"]
+[ext_resource type="Texture2D" uid="uid://cipr8kl2fqnjj" path="res://Board.png" id="5_rka8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihfcg"]
 size = Vector2(45, 641)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rka8t"]
-size = Vector2(102, 803.5)
+size = Vector2(102, 669.75)
 
 [node name="Level1" type="Node" unique_id=938949353]
 script = ExtResource("1_ihfcg")
 
+[node name="Board" type="Sprite2D" parent="." unique_id=936853158]
+position = Vector2(574, 139)
+scale = Vector2(2.5698254, 3.187912)
+texture = ExtResource("5_rka8t")
+
 [node name="Ball" parent="." unique_id=1206037162 instance=ExtResource("1_hn12h")]
-position = Vector2(342, 230)
+position = Vector2(574, 283)
 
 [node name="Player1" parent="." unique_id=1526438033 instance=ExtResource("4_rka8t")]
-position = Vector2(1141, 186)
-
-[node name="player_goal" type="CollisionShape2D" parent="Player1" unique_id=368756860]
-position = Vector2(28, 137)
-shape = SubResource("RectangleShape2D_ihfcg")
+position = Vector2(1137, 189)
 
 [node name="Computer" parent="." unique_id=116328400 node_paths=PackedStringArray("ball") instance=ExtResource("3_hn12h")]
+position = Vector2(0, 3)
 ball = NodePath("../Ball")
 
-[node name="computer_goal" type="CollisionShape2D" parent="Computer" unique_id=1089942393]
-position = Vector2(-38, 401)
+[node name="computer_score" type="Label" parent="." unique_id=1046588063]
+anchors_preset = -1
+anchor_left = 0.18400002
+anchor_right = 0.18400002
+offset_left = -184.96802
+offset_top = 2.0
+offset_right = -36.272354
+offset_bottom = 53.0
+text = "this is computer score"
+
+[node name="player_score" type="Label" parent="." unique_id=1026590289]
+offset_left = 1013.0
+offset_right = 1154.0
+offset_bottom = 23.0
+text = "This is playerscore"
+
+[node name="PlayerGoal" type="Area2D" parent="." unique_id=556729562]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerGoal" unique_id=368756860]
+position = Vector2(1163, 332)
+shape = SubResource("RectangleShape2D_ihfcg")
+
+[node name="ComputerGoal" type="Area2D" parent="." unique_id=19312914]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerGoal" unique_id=1089942393]
+position = Vector2(-43, 335)
 shape = SubResource("RectangleShape2D_rka8t")
+
+[connection signal="ComputerGoal" from="Ball" to="." method="_on_ball_computer_goal"]
+[connection signal="PlayerGoal" from="Ball" to="." method="_on_ball_player_goal"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bk8ekbxyqyr22" path="res://Computer.png" id="1_gxl5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18hgq"]
-size = Vector2(20, 121)
+size = Vector2(20, 114)
 
 [node name="Computer" type="Area2D" unique_id=832194039]
 script = ExtResource("1_18hgq")
@@ -13,6 +13,6 @@ script = ExtResource("1_18hgq")
 position = Vector2(11, 56)
 texture = ExtResource("1_gxl5a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413815794]
-position = Vector2(11, 57.5)
+[node name="computer_collision" type="CollisionShape2D" parent="." unique_id=1003763821]
+position = Vector2(10, 56)
 shape = SubResource("RectangleShape2D_18hgq")

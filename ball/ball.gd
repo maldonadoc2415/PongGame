@@ -1,16 +1,17 @@
 extends Area2D
 # difference between VAr and Constant
-@export var speed:int = 120
+@export var speed:int = 100
+
 
 var direction = Vector2(0,0)
 
 var screen_size
-signal player_goal
-signal computer_goal
+signal PlayerGoal
+signal ComputerGoal
 # called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	direction = Vector2(1,1)
+	direction = Vector2(set_random_direction(), set_random_direction())
 	screen_size = get_window().size
 	
 
@@ -24,14 +25,19 @@ func _process(delta: float) -> void:
 		direction.y *= -1
 		
 func _on_area_entered(area: Area2D) -> void:
-	if area.name == "Player1":
+	if area.name == "PlayerGoal":
 		direction *= -1
-	if area.name == "Computer":
+	if area.name == "ComputerGoal":
 		direction *= -1			
-	if area.name == "computer_goal":
-		emit_signal("computer_goal")
-	if area.name == "player_goal":
-		emit_signal("player_goal")
+	if area.name == "ComputerGoal":
+		emit_signal("ComputerGoal")
+	if area.name == "PlayerGoal":
+		emit_signal("PlayerGoal")
 		
 		
 	
+
+func set_random_direction():
+	var choices = [-1, 1]
+	var random_direction = choices.pick_random()
+	return random_direction
